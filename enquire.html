@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enquire — LandEdge Destination Houses</title>
+<meta name="description" content="Book a private site visit. Tell us which project and when, or reach us on WhatsApp, phone or email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#F6F3EA;font-family:'Instrument Sans',sans-serif;color:#1B2420;}
+a{color:#3E6B68;}a:hover{color:#2c4e4b;}
+img{display:block;max-width:100%;}
+header{position:sticky;top:0;z-index:40;background:#F6F3EA;border-bottom:1px solid #e3ddc9;}
+.hdr-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.hdr-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.hdr-logo img{width:32px;height:32px;}
+.hdr-logo span{font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:#1B2420;}
+nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px;}
+nav a{text-decoration:none;color:#1B2420;}
+nav a:hover{color:#3E6B68;}
+.btn-book{text-decoration:none;background:#3E6B68;color:#F6F3EA;padding:10px 18px;border-radius:2px;font-size:14px;white-space:nowrap;}
+.btn-book:hover{background:#2c4e4b;color:#F6F3EA;}
+input,select,textarea{font-family:'Instrument Sans',sans-serif;font-size:15px;padding:12px;border:1px solid #cfc8ac;background:#fff;color:#1B2420;width:100%;}
+input:focus,select:focus,textarea:focus{outline:2px solid #3E6B68;outline-offset:1px;}
+label{font-size:13px;color:#555;display:block;margin-bottom:6px;}
+footer{background:#1B2420;color:#F6F3EA;padding:32px 24px;font-size:14px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-inner">
+    <a href="index.html" class="hdr-logo">
+      <img src="assets/brand/landedge-emblem.png" alt="LandEdge emblem">
+      <span>LandEdge</span>
+    </a>
+    <nav>
+      <a href="projects.html">Projects</a>
+      <a href="who-its-for.html">Who It's For</a>
+      <a href="the-house.html">The House</a>
+      <a href="life-in-the-enclave.html">Life in the Enclave</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section style="max-width:1100px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);gap:48px;align-items:start;">
+  <div>
+    <h1 style="font-family:'Fraunces',serif;font-size:34px;margin:0 0 8px;">Book a private visit</h1>
+    <p style="font-size:15px;color:#555;margin:0 0 28px;max-width:480px;">Tell us which project and when. We will confirm a time by phone or WhatsApp.</p>
+
+    <div id="success-msg" style="display:none;background:#eef3ed;border:1px solid #3E6B68;padding:20px;font-size:15px;max-width:480px;">Thank you. Your enquiry has been received. We will contact you to confirm a visit.</div>
+
+    <form id="enquiry-form" style="display:flex;flex-direction:column;gap:18px;max-width:480px;" novalidate>
+      <div>
+        <label for="q-name">Name</label>
+        <input id="q-name" required autocomplete="name">
+      </div>
+      <div>
+        <label for="q-mobile">Mobile number</label>
+        <input id="q-mobile" type="tel" required autocomplete="tel">
+      </div>
+      <div>
+        <label for="q-city">City</label>
+        <input id="q-city" required autocomplete="address-level2">
+      </div>
+      <div>
+        <label for="q-project">Project of interest</label>
+        <select id="q-project">
+          <option value="Forest Edge (Essential)">Forest Edge (Essential)</option>
+          <option value="Lake Edge (Comfort)">Lake Edge (Comfort)</option>
+          <option value="Stepwell Court (Premium)">Stepwell Court (Premium)</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+      </div>
+      <div>
+        <label for="q-date">Preferred visit date</label>
+        <input id="q-date" type="date">
+      </div>
+      <div>
+        <label for="q-note">Note</label>
+        <textarea id="q-note" rows="3"></textarea>
+      </div>
+      <label style="display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:flex-start;font-size:13px;color:#333;cursor:pointer;">
+        <input type="checkbox" id="q-consent" style="width:auto;margin-top:3px;">
+        <span>The family agrees to be contacted about a site visit. Details are used only for that purpose.</span>
+      </label>
+      <div id="endpoint-notice" style="display:none;font-size:13px;color:#8a5a2a;background:#fbf0de;border:1px solid #e3c08a;padding:12px;">This form isn't connected to an inbox yet. Please use WhatsApp, phone or email on the right so your enquiry reaches us.</div>
+      <div id="error-msg" style="display:none;font-size:13px;color:#8a2a2a;background:#fbe0de;border:1px solid #e38a8a;padding:12px;">Please fill name, mobile, city and accept the consent box, then try again.</div>
+      <button type="submit" style="background:#3E6B68;color:#F6F3EA;border:none;padding:14px 22px;font-size:15px;cursor:pointer;font-family:'Instrument Sans',sans-serif;">Send enquiry</button>
+    </form>
+  </div>
+
+  <aside style="background:#fff;border:1px solid #e3ddc9;padding:28px;align-self:start;">
+    <h2 style="font-family:'Fraunces',serif;font-size:20px;margin:0 0 16px;">Reach us directly</h2>
+    <div style="margin-bottom:16px;">
+      <div style="font-size:12px;color:#888;">Phone / WhatsApp</div>
+      <div style="font-size:17px;">+91 96673 95420</div>
+    </div>
+    <div style="margin-bottom:20px;">
+      <div style="font-size:12px;color:#888;">Email</div>
+      <div style="font-size:17px;">landedge.projects@gmail.com</div>
+    </div>
+    <a id="wa-link" href="https://wa.me/919667395420?text=Hi%20LandEdge%2C%20I%27d%20like%20to%20book%20a%20private%20site%20visit." target="_blank" rel="noopener" style="display:block;text-align:center;background:#B08D57;color:#1B2420;padding:12px;text-decoration:none;font-size:15px;">Chat on WhatsApp</a>
+    <p style="font-size:12px;color:#888;margin-top:16px;">Price on request. [Approval or RERA line]</p>
+  </aside>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>LandEdge Destination Houses</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;"><span>+91 96673 95420</span><span>landedge.projects@gmail.com</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const ENDPOINT = 'https://formsubmit.co/ajax/landedge.projects@gmail.com';
+  const form = document.getElementById('enquiry-form');
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
+  const endpointNotice = document.getElementById('endpoint-notice');
+  const waLink = document.getElementById('wa-link');
+
+  function getWaHref(){
+    const name = document.getElementById('q-name').value;
+    const project = document.getElementById('q-project').value;
+    const text = 'Hi LandEdge, I\'m ' + (name || '') + '. I\'d like to book a private visit (' + project + ').';
+    return 'https://wa.me/919667395420?text=' + encodeURIComponent(text);
+  }
+
+  document.getElementById('q-name').addEventListener('input', function(){ waLink.href = getWaHref(); });
+  document.getElementById('q-project').addEventListener('change', function(){ waLink.href = getWaHref(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('q-name').value.trim();
+    const mobile = document.getElementById('q-mobile').value.trim();
+    const city = document.getElementById('q-city').value.trim();
+    const consent = document.getElementById('q-consent').checked;
+
+    errorMsg.style.display = 'none';
+    endpointNotice.style.display = 'none';
+
+    if(!name || !mobile || !city || !consent){
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    const payload = {
+      Name: name,
+      Mobile: mobile,
+      City: city,
+      'Project of interest': document.getElementById('q-project').value,
+      'Preferred visit date': document.getElementById('q-date').value || '—',
+      Note: document.getElementById('q-note').value || '—',
+      _subject: 'LandEdge enquiry — ' + name
+    };
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){
+      if(!r.ok) throw new Error('bad response');
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    })
+    .catch(function(){
+      endpointNotice.style.display = 'block';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
